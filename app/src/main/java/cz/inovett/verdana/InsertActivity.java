@@ -14,7 +14,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class InsertActivity extends AppCompatActivity {
-    private EditText name, category, fullText;
+    private EditText name, fullText;
     private Button mSubmitBtn;
     private DatabaseReference databaseReference;
     private ProgressDialog mProgress;
@@ -26,7 +26,6 @@ public class InsertActivity extends AppCompatActivity {
 
 
         name = (EditText) findViewById(R.id.nameField);
-        category = (EditText) findViewById(R.id.editTextCategory);
         fullText = (EditText) findViewById(R.id.editTextFullText);
         mSubmitBtn = (Button) findViewById(R.id.buttonSubmit);
         mProgress = new ProgressDialog(this);
@@ -44,16 +43,14 @@ public class InsertActivity extends AppCompatActivity {
     }
     private void StartPosting() {
         String strName = name.getText().toString().trim();
-        String strCategory = category.getText().toString().trim();
         String strFullText = fullText.getText().toString().trim();
 
-        if (!TextUtils.isEmpty(strName)&&!TextUtils.isEmpty(strCategory)
+        if (!TextUtils.isEmpty(strName)
                 &&!TextUtils.isEmpty(strFullText)){
             mProgress.setMessage("Posting ....");
             mProgress.show();
             DatabaseReference newPost = databaseReference.push();
             newPost.child("title").setValue(strName);
-            newPost.child("Category").setValue(strCategory);
             newPost.child("Text").setValue(strFullText);
             mProgress.dismiss();
             Intent i = new Intent(this,MainActivity.class);

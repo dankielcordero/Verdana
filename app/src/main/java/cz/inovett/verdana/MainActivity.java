@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             protected void populateViewHolder(BlogViewHolder viewHolder, Blog model, int position) {
                 viewHolder.setTitle(model.getTitle());
-                viewHolder.setDesc(model.getCategory());
+
                 viewHolder.setFullText(model.getText());
 
             }
@@ -125,6 +125,11 @@ public class MainActivity extends AppCompatActivity {
         FirebaseUserActions.getInstance().end(getIndexApiAction());
         super.onStop();
     }
+
+    private void logout() {
+        auth.signOut();
+    }
+
     public  static  class BlogViewHolder extends RecyclerView.ViewHolder{
 
         View view;
@@ -137,16 +142,10 @@ public class MainActivity extends AppCompatActivity {
             TextView post_title = (TextView) view.findViewById(R.id.post_Name);
             post_title.setText(title);
         }
-        public void setDesc(String Category) {
-            TextView category = (TextView) view.findViewById(R.id.post_category);
-            category.setText(Category);
-        }
+
         public void setFullText(String Text) {
             TextView full_text = (TextView) view.findViewById(R.id.post_full_text);
             full_text.setText(Text);
         }
-    }
-    private void logout() {
-        auth.signOut();
     }
 }
