@@ -104,7 +104,6 @@ public class RegisterActivity extends AppCompatActivity {
 
                                     DatabaseReference current_user_db = databaseRefence.child(user_id);
                                     current_user_db.child("name").setValue(nameStr);
-                                    current_user_db.child("image").setValue("deafult");
                                     progressDialog.dismiss();
 
                                     Intent i = new Intent(RegisterActivity.this,MainActivity.class);

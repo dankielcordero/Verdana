@@ -30,8 +30,8 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
         getSupportActionBar().hide();
+        setContentView(R.layout.activity_login);
         email = (EditText) findViewById(R.id.loginEmailField);
         pass = (EditText) findViewById(R.id.loginPasswordField);
         mAuth = FirebaseAuth.getInstance();
@@ -47,6 +47,8 @@ public class LoginActivity extends AppCompatActivity {
     public void startApplication(View view) {
         checkLogin();
 
+        /*Intent i = new Intent(this,MainMenuActivity.class);
+        startActivity(i);*/
 
     }
 
@@ -85,7 +87,7 @@ public class LoginActivity extends AppCompatActivity {
                     startActivity(i);
                 }else{
                     Toast.makeText(LoginActivity.this,"Wrong email or password",Toast.LENGTH_SHORT).show();
-                    /*Intent i = new Intent(LoginActivity.this,SetupActivity.class); /*musí se vyřešit problémy
+                   /* Intent i = new Intent(LoginActivity.this,SetupActivity.class); /*musí se vyřešit problémy
                     i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(i);*/
                 }
