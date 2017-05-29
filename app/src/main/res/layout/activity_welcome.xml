@@ -59,7 +59,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/my_button_bg"
         android:onClick="startRegister"
-        android:text="Sign out"
+        android:text="Sign on"
         android:textColor="@android:color/background_light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
